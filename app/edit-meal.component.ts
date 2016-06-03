@@ -6,12 +6,30 @@ import { Meal } from './meal.model';
   inputs: ['meal'],
   template: `
     <div class="meal-form">
-      <h3>Edit Name: {{ meal.name }}</h3>
-      <input [(ngModel)]="meal.name" class="col-sm-3 input-lg meal-form"/>
-      <h3>Edit Details: {{ meal.details }}</h3>
-      <input [(ngModel)]="meal.details" class="col-sm-3 input-lg meal-form"/>
-      <h3>Edit Calories: {{ meal.calories }}</h3>
-      <input [(ngModel)]="meal.description" class="col-sm-3 input-lg meal-form"/>
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Edit Name:</h3>
+        </div>
+        <div class="col-md-3">
+          <input [(ngModel)]="meal.name" class="input-lg meal-form"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Edit Details:</h3>
+        </div>
+        <div class="col-md-3">
+          <input [(ngModel)]="meal.details" class="input-lg meal-form"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Edit Categories:</h3>
+        </div>
+        <div class="col-md-3">
+          <input [(ngModel)]="meal.calories" class="input-lg meal-form"/>
+        </div>
+      </div>
     </div>
   `
 })
