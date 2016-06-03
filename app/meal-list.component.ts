@@ -12,6 +12,14 @@ import { Meal } from './meal.model';
   directives: [MealDisplayComponent, NewMealComponent, EditMealComponent],
   pipes: [CaloriesPipe],
   template: `
+    <select (change)="onChange($event.target.value)" class="filter">
+      <option value="all">Show All</option>
+      <option value="done">Show Done</option>
+      <option value="notDone" selected="selected">Show Not Done</option>
+    </select>
+    <input placeholder="calorie count" class="col-sm-8 input-lg" #calorieCount>
+    <button (click)="submitFilter(calorieCount)">filter</button>
+
     <meal-display *ngFor="#meal of mealList | calories:calorieFilter"
     (click)="mealClicked(meal)"
     [class.selected]="meal === selectedMeal"
@@ -31,7 +39,7 @@ import { Meal } from './meal.model';
 export class MealListComponent {
   public mealList: Meal[];
   public onMealSelect: EventEmitter<Meal>;
-  public calorieFilter: number = 300;
+  public calorieFilter: number = 0;
   public selectedMeal: Meal;
   constructor() {
     this.onMealSelect = new EventEmitter();
@@ -44,5 +52,9 @@ export class MealListComponent {
   addMeal(newMeal: Meal) : void {
     newMeal.id = this.mealList.length;
     this.mealList.push(newMeal);
+  }
+  submitFilter(calorieCount : string) : void {
+    var calories = parseInt(calorieCount);
+    this.calorieFilter = calories;
   }
 }
