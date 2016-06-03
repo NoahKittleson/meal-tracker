@@ -1,6 +1,7 @@
 import { EventEmitter, Component } from 'angular2/core';
 import { MealDisplayComponent } from './meal-display.component';
 import { NewMealComponent } from './new-meal.component';
+import { EditMealComponent } from './edit-meal.component';
 import { Meal } from './meal.model';
 
 @Component ({
