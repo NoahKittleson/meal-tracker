@@ -10,7 +10,7 @@ import { Meal } from './meal.model';
       <h1>Meal Tracker</h1>
       <meal-list
         [mealList]="meals"
-        (onTaskSelect) = "mealWasSelected($event)">
+        (onMealSelect) = "mealWasSelected($event)">
       </meal-list>
     </div>
   `
