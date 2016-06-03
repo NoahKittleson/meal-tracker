@@ -15,13 +15,5 @@ export class CaloriesPipe implements PipeTransform {
     return input.filter((meal) => {
       return meal.calories >= desiredCarlorieCount;
     });
-    //}
-    // else if (desiredDoneState === "notDone") {
-    //   return input.filter((task) => {
-    //     return !task.done;
-    //   });
-    // } else {
-    //   return input;
-    // }
   }
 }
