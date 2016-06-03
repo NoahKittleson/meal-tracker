@@ -8,7 +8,7 @@ import { Meal } from './meal.model';
     <div class="meal-form">
       <div class="row">
         <div class="col-md-3">
-          <h3>Edit Name:</h3>
+          <h3>Name:</h3>
         </div>
         <div class="col-md-3">
           <input [(ngModel)]="meal.name" class="input-lg meal-form"/>
@@ -16,7 +16,7 @@ import { Meal } from './meal.model';
       </div>
       <div class="row">
         <div class="col-md-3">
-          <h3>Edit Details:</h3>
+          <h3>Details:</h3>
         </div>
         <div class="col-md-3">
           <input [(ngModel)]="meal.details" class="input-lg meal-form"/>
@@ -24,7 +24,7 @@ import { Meal } from './meal.model';
       </div>
       <div class="row">
         <div class="col-md-3">
-          <h3>Edit Categories:</h3>
+          <h3>Calories:</h3>
         </div>
         <div class="col-md-3">
           <input [(ngModel)]="meal.calories" class="input-lg meal-form"/>

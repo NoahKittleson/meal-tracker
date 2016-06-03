@@ -1,7 +1,12 @@
 h1 {
-  color: blue;
+  color: #a10978;
 }
 
 .selected {
-  color: blue;
+  color: #ff007f;
+}
+
+hr {
+  width: 40%;
+  float: left;
 }

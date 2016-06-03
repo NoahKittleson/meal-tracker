@@ -5,9 +5,11 @@ import { Meal } from './meal.model';
   selector: "meal-display",
   inputs: ['meal'],
   template: `
-    <h3> {{ meal.name }} </h3>
-    <p *ngIf="meal.details"> {{ meal.details }} </p>
-    <p> {{ meal.calories }} </p>
+    <div class="container">
+      <h3> {{ meal.name }} </h3>
+      <p *ngIf="meal.details"> {{ meal.details }} </p>
+      <p> {{ meal.calories }} </p>
+    <div>
     <hr>
   `
 })

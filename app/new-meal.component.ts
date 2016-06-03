@@ -7,10 +7,12 @@ import { Meal } from './meal.model';
   template: `
   <div class="meal-form">
     <h3>Add Another Meal:</h3>
-    <input placeholder="Name" class="col-sm-8 input-lg" #mealName>
-    <input placeholder="Details" class="col-sm-8 input-lg" #mealDetails>
-    <input placeholder="Calories" class="col-sm-8 input-lg" #mealCalories>
+    <input placeholder="Name" class="input-lg" #mealName> <br>
+    <input placeholder="Details" class="input-lg" #mealDetails> <br>
+    <input placeholder="Calories" class="input-lg" #mealCalories> <br>
     <button (click)="createMeal(mealName, mealDetails, mealCalories)" class="btn-success btn-lg add-button">Add</button>
+  </div>
+
   `
 })
 export class NewMealComponent {

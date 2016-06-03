@@ -12,30 +12,34 @@ import { Meal } from './meal.model';
   directives: [MealDisplayComponent, NewMealComponent, EditMealComponent],
   pipes: [CaloriesPipe],
   template: `
-    <div class="container">
-      <input placeholder="calorie count" class="col-sm-3 input-lg" #calorieCount>
-      <label> Higher?
-        <input type="checkbox" #higher>
-      </label>
-      <br>
-      <button (click)="submitFilter(calorieCount, higher)" class="btn">filter</button>
+  <div class= "row">
+    <div class = "col-md-6">
+      <div class="container">
+        <input placeholder="calorie count" class="col-sm-3 input-lg" #calorieCount>
+        <label> Higher?
+          <input type="checkbox" #higher>
+        </label>
+        <br>
+        <button (click)="submitFilter(calorieCount, higher)" class="btn">filter</button>
+      </div>
+      <div class="container">
+        <meal-display *ngFor="#meal of mealList | calories:calorieFilter:higherFilter"
+        (click)="mealClicked(meal)"
+        [class.selected]="meal === selectedMeal"
+        [meal]="meal">
+        </meal-display>
+      </div>
     </div>
-    <div class="container">
-      <meal-display *ngFor="#meal of mealList | calories:calorieFilter:higherFilter"
-      (click)="mealClicked(meal)"
-      [class.selected]="meal === selectedMeal"
-      [meal]="meal">
-      </meal-display>
-    </div>
-    <div class="container">
-      <new-meal (onSubmitNewMeal)="addMeal($event)">
-      </new-meal>
-    </div>
-
+    <div class = "col-md-6">
+      <div class="container">
+        <new-meal (onSubmitNewMeal)="addMeal($event)">
+        </new-meal>
+      </div>
     <br>
     <edit-meal *ngIf="selectedMeal"
     [meal] = "selectedMeal">
     </edit-meal>
+  </div>
   `
 })
 export class MealListComponent {
