@@ -12,17 +12,21 @@ import { Meal } from './meal.model';
   directives: [MealDisplayComponent, NewMealComponent, EditMealComponent],
   pipes: [CaloriesPipe],
   template: `
-    <input placeholder="calorie count" class="col-sm-3 input-lg" #calorieCount>
-    <label> Higher?
-      <input type="checkbox" #higher>
-    </label>
-    <button (click)="submitFilter(calorieCount, higher)">filter</button>
-    <br>
-    <meal-display *ngFor="#meal of mealList | calories:calorieFilter:higherFilter"
-    (click)="mealClicked(meal)"
-    [class.selected]="meal === selectedMeal"
-    [meal]="meal">
-    </meal-display>
+    <div class="container">
+      <input placeholder="calorie count" class="col-sm-3 input-lg" #calorieCount>
+      <label> Higher?
+        <input type="checkbox" #higher>
+      </label>
+      <br>
+      <button (click)="submitFilter(calorieCount, higher)" class="btn">filter</button>
+    </div>
+    <div class="container">
+      <meal-display *ngFor="#meal of mealList | calories:calorieFilter:higherFilter"
+      (click)="mealClicked(meal)"
+      [class.selected]="meal === selectedMeal"
+      [meal]="meal">
+      </meal-display>
+    </div>
     <div class="container">
       <new-meal (onSubmitNewMeal)="addMeal($event)">
       </new-meal>
@@ -54,6 +58,9 @@ export class MealListComponent {
   }
   submitFilter(calorieCount : HTMLInputElement, higherCheckbox: HTMLInputElement) : void {
     var calories = parseInt(calorieCount.value);
+    if (!calories) {
+      calories = 0;
+    }
     var higher = higherCheckbox.checked;
     this.higherFilter = higher;
     this.calorieFilter = calories;
