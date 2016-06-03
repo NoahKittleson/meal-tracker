@@ -9,11 +9,19 @@ import { Meal } from './meal.model';
 export class CaloriesPipe implements PipeTransform {
   transform(input: Meal[], args) {
     var desiredCarlorieCount = args[0];
+    var moreThan = args[1];
     if(desiredCarlorieCount <= 0) {
       return input;
     }
-    return input.filter((meal) => {
-      return meal.calories >= desiredCarlorieCount;
-    });
+    if (moreThan) {
+      return input.filter((meal) => {
+        return meal.calories >= desiredCarlorieCount;
+      });
+    } else {
+      return input.filter((meal) => {
+        return meal.calories <= desiredCarlorieCount;
+      });
+    }
+
   }
 }
